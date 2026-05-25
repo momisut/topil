@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Laporan Tutup Kasir "tokopilus"</title>
+    <!-- Memuat Tailwind CSS untuk styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* CSS tambahan untuk animasi atau gaya khusus jika diperlukan */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6; /* Warna abu-abu terang mirip background Tailwind gray-100 */
+            overflow-x: hidden; /* Mencegah layar geser ke samping di HP */
+        }
+
+        /* Penyesuaian otomatis untuk layar HP yang ukurannya sempit */
+        @media (max-width: 400px) {
+            main .grid > div { padding: 0.6rem 0.75rem !important; }
+            main .grid > div .text-lg { font-size: 1.05rem !important; line-height: 1.2 !important; }
+            main .grid > div input { width: 3.5rem !important; height: 2.2rem !important; padding: 0 !important; }
+            main .grid > div .w-24 { width: 5.5rem !important; }
+        }
+    </style>
+</head>
+<body class="p-0 sm:p-6 md:p-10 flex justify-center min-h-screen">
+
+    <div class="bg-white sm:rounded-xl sm:shadow-lg p-4 sm:p-8 w-full max-w-3xl min-h-screen sm:min-h-fit">
+        
+        <header class="mb-5 sm:mb-8 text-center border-b pb-3 sm:pb-4 pt-4 sm:pt-0">
+            <h1 class="text-2xl sm:text-3xl font-bold text-gray-800">Laporan Tutup Kasir "tokopilus"</h1>
+            <p class="text-sm sm:text-base text-gray-500 mt-1 sm:mt-2">Hitung Pecahan Uang & Pisahkan Modal Besok</p>
+        </header>
+
+        <main>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-2 sm:gap-3">
+                
+                <!-- Pecahan 100.000 -->
+                <div class="flex items-center justify-between p-3 bg-white border border-gray-200 rounded-lg shadow-sm hover:border-blue-300 transition-colors">
+                    <div class="flex-1">
+                        <div class="font-bold text-gray-800 text-lg">Rp 100.000</div>
+                        <div class="text-[11px] text-gray-500 leading-tight">Semua ke pendapatan</div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <input type="number" id="qty-100k" min="0" value="0" inputmode="numeric" class="w-16 h-10 border border-gray-300 rounded-md text-center font-bold focus:ring-2 focus:ring-blue-500 outline-none bg-blue-50" oninput="calculate()" onfocus="this.select()">
+                        <div class="w-24 text-right">
+                            <span id="total-100k" class="text-sm font-bold text-gray-800 block">Rp 0</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pecahan 50.000 -->
+                <div class="flex items-center justify-between p-3 bg-white border border-gray-200 rounded-lg shadow-sm hover:border-blue-300 transition-colors">
+                    <div class="flex-1">
+                        <div class="font-bold text-gray-800 text-lg">Rp 50.000</div>
+                        <div class="text-[11px] text-gray-500 leading-tight">Maks Modal: Rp 100rb</div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <input type="number" id="qty-50k" min="0" value="0" inputmode="numeric" class="w-16 h-10 border border-gray-300 rounded-md text-center font-bold focus:ring-2 focus:ring-blue-500 outline-none bg-blue-50" oninput="calculate()" onfocus="this.select()">
+                        <div class="w-24 text-right">
+                            <span id="total-50k" class="text-sm font-bold text-gray-800 block">Rp 0</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pecahan 20.000 -->
+                <div class="flex items-center justify-between p-3 bg-white border border-gray-200 rounded-lg shadow-sm hover:border-blue-300 transition-colors">
+                    <div class="flex-1">
+                        <div class="font-bold text-gray-800 text-lg">Rp 20.000</div>
+                        <div class="text-[11px] text-gray-500 leading-tight">Maks Modal: Rp 100rb</div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <input type="number" id="qty-20k" min="0" value="0" inputmode="numeric" class="w-16 h-10 border border-gray-300 rounded-md text-center font-bold focus:ring-2 focus:ring-blue-500 outline-none bg-blue-50" oninput="calculate()" onfocus="this.select()">
+                        <div class="w-24 text-right">
+                            <span id="total-20k" class="text-sm font-bold text-gray-800 block">Rp 0</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pecahan 10.000 -->
+                <div class="flex items-center justify-between p-3 bg-white border border-gray-200 rounded-lg shadow-sm hover:border-blue-300 transition-colors">
+                    <div class="flex-1">
+                        <div class="font-bold text-gray-800 text-lg">Rp 10.000</div>
+                        <div class="text-[11px] text-gray-500 leading-tight">Maks Modal: Rp 100rb</div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <input type="number" id="qty-10k" min="0" value="0" inputmode="numeric" class="w-16 h-10 border border-gray-300 rounded-md text-center font-bold focus:ring-2 focus:ring-blue-500 outline-none bg-blue-50" oninput="calculate()" onfocus="this.select()">
+                        <div class="w-24 text-right">
+                            <span id="total-10k" class="text-sm font-bold text-gray-800 block">Rp 0</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pecahan 5.000 -->
+                <div class="flex items-center justify-between p-3 bg-white border border-gray-200 rounded-lg shadow-sm hover:border-blue-300 transition-colors">
+                    <div class="flex-1">
+                        <div class="font-bold text-gray-800 text-lg">Rp 5.000</div>
+                        <div class="text-[11px] text-gray-500 leading-tight">Maks Modal: Rp 100rb</div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <input type="number" id="qty-5k" min="0" value="0" inputmode="numeric" class="w-16 h-10 border border-gray-300 rounded-md text-center font-bold focus:ring-2 focus:ring-blue-500 outline-none bg-blue-50" oninput="calculate()" onfocus="this.select()">
+                        <div class="w-24 text-right">
+                            <span id="total-5k" class="text-sm font-bold text-gray-800 block">Rp 0</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pecahan 2.000 -->
+                <div class="flex items-center justify-between p-3 bg-white border border-gray-200 rounded-lg shadow-sm hover:border-blue-300 transition-colors">
+                    <div class="flex-1">
+                        <div class="font-bold text-gray-800 text-lg">Rp 2.000</div>
+                        <div class="text-[11px] text-gray-500 leading-tight">Maks Modal: Rp 200rb</div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <input type="number" id="qty-2k" min="0" value="0" inputmode="numeric" class="w-16 h-10 border border-gray-300 rounded-md text-center font-bold focus:ring-2 focus:ring-blue-500 outline-none bg-blue-50" oninput="calculate()" onfocus="this.select()">
+                        <div class="w-24 text-right">
+                            <span id="total-2k" class="text-sm font-bold text-gray-800 block">Rp 0</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pecahan 1.000 -->
+                <div class="flex items-center justify-between p-3 bg-white border border-gray-200 rounded-lg shadow-sm hover:border-blue-300 transition-colors">
+                    <div class="flex-1">
+                        <div class="font-bold text-gray-800 text-lg">Rp 1.000</div>
+                        <div class="text-[11px] text-gray-500 leading-tight">Maks Modal: Rp 200rb</div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <input type="number" id="qty-1k" min="0" value="0" inputmode="numeric" class="w-16 h-10 border border-gray-300 rounded-md text-center font-bold focus:ring-2 focus:ring-blue-500 outline-none bg-blue-50" oninput="calculate()" onfocus="this.select()">
+                        <div class="w-24 text-right">
+                            <span id="total-1k" class="text-sm font-bold text-gray-800 block">Rp 0</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pecahan 500 -->
+                <div class="flex items-center justify-between p-3 bg-white border border-gray-200 rounded-lg shadow-sm hover:border-blue-300 transition-colors">
+                    <div class="flex-1">
+                        <div class="font-bold text-gray-800 text-lg">Rp 500</div>
+                        <div class="text-[11px] text-gray-500 leading-tight">Maks Modal: Rp 200rb</div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <input type="number" id="qty-500" min="0" value="0" inputmode="numeric" class="w-16 h-10 border border-gray-300 rounded-md text-center font-bold focus:ring-2 focus:ring-blue-500 outline-none bg-blue-50" oninput="calculate()" onfocus="this.select()">
+                        <div class="w-24 text-right">
+                            <span id="total-500" class="text-sm font-bold text-gray-800 block">Rp 0</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pecahan 200 -->
+                <div class="flex items-center justify-between p-3 bg-white border border-gray-200 rounded-lg shadow-sm hover:border-blue-300 transition-colors">
+                    <div class="flex-1">
+                        <div class="font-bold text-gray-800 text-lg">Rp 200</div>
+                        <div class="text-[11px] text-gray-500 leading-tight">Maks Modal: Rp 200rb</div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <input type="number" id="qty-200" min="0" value="0" inputmode="numeric" class="w-16 h-10 border border-gray-300 rounded-md text-center font-bold focus:ring-2 focus:ring-blue-500 outline-none bg-blue-50" oninput="calculate()" onfocus="this.select()">
+                        <div class="w-24 text-right">
+                            <span id="total-200" class="text-sm font-bold text-gray-800 block">Rp 0</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pecahan 100 -->
+            <div class="flex items-center justify-between p-3 bg-white border border-gray-200 rounded-lg shadow-sm hover:border-blue-300 transition-colors">
+                <div class="flex-1">
+                    <div class="font-bold text-gray-800 text-lg">Rp 100</div>
+                    <div class="text-[11px] text-gray-500 leading-tight">Maks Modal: Rp 200rb</div>
+                </div>
+                <div class="flex items-center gap-2">
+                    <input type="number" id="qty-100" min="0" value="0" inputmode="numeric" class="w-16 h-10 border border-gray-300 rounded-md text-center font-bold focus:ring-2 focus:ring-blue-500 outline-none bg-blue-50" oninput="calculate()" onfocus="this.select()">
+                    <div class="w-24 text-right">
+                        <span id="total-100" class="text-sm font-bold text-gray-800 block">Rp 0</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="mt-6 sm:mt-8 border-t pt-5 sm:pt-6 space-y-3 sm:space-y-4 pb-8 sm:pb-0">
+            <h2 class="text-lg sm:text-xl font-bold text-gray-800 mb-2">Ringkasan Laporan</h2>
+            
+            <div class="flex justify-between items-center p-3 sm:p-4 bg-blue-50 rounded-lg border border-blue-200">
+                <span class="text-sm sm:text-md font-semibold text-blue-800">Total Uang Fisik Keseluruhan</span>
+                <span id="grand-total" class="text-lg sm:text-xl font-bold text-blue-900">Rp 0</span>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4 mt-2">
+                <div class="p-3 sm:p-4 bg-green-50 rounded-lg border border-green-200 shadow-sm">
+                    <span class="block text-sm font-bold text-green-700 mb-1">Pemasukan / Pendapatan Kasir</span>
+                    <span class="block text-[11px] text-green-600 mb-2">Semua uang 100k + sisa uang yang melebihi batas modal</span>
+                    <span id="total-pendapatan" class="text-xl sm:text-2xl font-black text-green-800 tracking-tight">Rp 0</span>
+                </div>
+                <div class="p-3 sm:p-4 bg-orange-50 rounded-lg border border-orange-200 shadow-sm">
+                    <span class="block text-sm font-bold text-orange-700 mb-1">Uang Modal Besok</span>
+                    <span class="block text-[11px] text-orange-600 mb-2">Sesuai batas maksimal per pecahan (100k/200k)</span>
+                    <span id="total-modal" class="text-xl sm:text-2xl font-black text-orange-800 tracking-tight">Rp 0</span>
+                </div>
+            </div>
+            
+            <div class="flex justify-end mt-4">
+                <button onclick="resetForm()" class="w-full md:w-auto px-6 py-3 bg-red-100 hover:bg-red-200 text-red-700 font-bold rounded-lg transition duration-200 shadow-sm">Kosongkan Form (Reset)</button>
+            </div>
+        </div>
+    </main>
+</div>
+
+<script>
+        // Fungsi untuk format angka ke Rupiah
+        function formatRupiah(angka) {
+            return new Intl.NumberFormat('id-ID', {
+                style: 'currency',
+                currency: 'IDR',
+                minimumFractionDigits: 0
+            }).format(angka);
+        }
+
+        // Fungsi utama untuk menghitung
+        function calculate() {
+            // Mengambil nilai input jumlah qty (menggunakan Math.abs untuk cegah minus)
+            const qty100k = Math.abs(parseInt(document.getElementById('qty-100k').value) || 0);
+            const qty50k = Math.abs(parseInt(document.getElementById('qty-50k').value) || 0);
+            const qty20k = Math.abs(parseInt(document.getElementById('qty-20k').value) || 0);
+            const qty10k = Math.abs(parseInt(document.getElementById('qty-10k').value) || 0);
+            const qty5k = Math.abs(parseInt(document.getElementById('qty-5k').value) || 0);
+            const qty2k = Math.abs(parseInt(document.getElementById('qty-2k').value) || 0);
+            const qty1k = Math.abs(parseInt(document.getElementById('qty-1k').value) || 0);
+            const qty500 = Math.abs(parseInt(document.getElementById('qty-500').value) || 0);
+            const qty200 = Math.abs(parseInt(document.getElementById('qty-200').value) || 0);
+            const qty100 = Math.abs(parseInt(document.getElementById('qty-100').value) || 0);
+
+            // Menghitung total nilai per pecahan
+            const val100k = qty100k * 100000;
+            const val50k = qty50k * 50000;
+            const val20k = qty20k * 20000;
+            const val10k = qty10k * 10000;
+            const val5k = qty5k * 5000;
+            const val2k = qty2k * 2000;
+            const val1k = qty1k * 1000;
+            const val500 = qty500 * 500;
+            const val200 = qty200 * 200;
+            const val100 = qty100 * 100;
+
+            // Menampilkan total per pecahan di UI
+            document.getElementById('total-100k').innerText = formatRupiah(val100k);
+            document.getElementById('total-50k').innerText = formatRupiah(val50k);
+            document.getElementById('total-20k').innerText = formatRupiah(val20k);
+            document.getElementById('total-10k').innerText = formatRupiah(val10k);
+            document.getElementById('total-5k').innerText = formatRupiah(val5k);
+            document.getElementById('total-2k').innerText = formatRupiah(val2k);
+            document.getElementById('total-1k').innerText = formatRupiah(val1k);
+            document.getElementById('total-500').innerText = formatRupiah(val500);
+            document.getElementById('total-200').innerText = formatRupiah(val200);
+            document.getElementById('total-100').innerText = formatRupiah(val100);
+
+            let totalPendapatan = 0;
+            let totalModal = 0;
+
+            // Fungsi pembantu untuk membagi uang ke modal dan pendapatan berdasarkan batas
+            function prosesPecahan(nilaiUang, batasModal) {
+                if (nilaiUang > batasModal) {
+                    totalModal += batasModal; // Masuk modal sesuai batas maksimal
+                    totalPendapatan += (nilaiUang - batasModal); // Sisanya masuk pendapatan
+                } else {
+                    totalModal += nilaiUang; // Semua masuk modal jika belum melewati batas
+                }
+            }
+
+            // Menerapkan Aturan Sesuai Permintaan:
+            
+            // 1. UANG 100.000: Semua masuk pendapatan (Modal = 0)
+            totalPendapatan += val100k;
+
+            // 2. UANG 50k, 20k, 10k, 5k: Maksimal 100.000 untuk modal besok
+            prosesPecahan(val50k, 100000);
+            prosesPecahan(val20k, 100000);
+            prosesPecahan(val10k, 100000);
+            prosesPecahan(val5k, 100000);
+
+            // 3. UANG 2k, 1k, 500, 200, 100: Maksimal 200.000 untuk modal besok
+            prosesPecahan(val2k, 200000);
+            prosesPecahan(val1k, 200000);
+            prosesPecahan(val500, 200000);
+            prosesPecahan(val200, 200000);
+            prosesPecahan(val100, 200000);
+
+            // Menghitung grand total fisik uang
+            const grandTotal = val100k + val50k + val20k + val10k + val5k + val2k + val1k + val500 + val200 + val100;
+
+            // Render ke Layar
+            document.getElementById('grand-total').innerText = formatRupiah(grandTotal);
+            document.getElementById('total-pendapatan').innerText = formatRupiah(totalPendapatan);
+            document.getElementById('total-modal').innerText = formatRupiah(totalModal);
+        }
+
+        // Fungsi untuk mengosongkan semua input
+        function resetForm() {
+            const inputs = ['100k', '50k', '20k', '10k', '5k', '2k', '1k', '500', '200', '100'];
+            inputs.forEach(id => {
+                document.getElementById('qty-' + id).value = 0;
+            });
+            calculate(); // Panggil hitung ulang agar kembali nol
+            window.scrollTo(0, 0); // Scroll ke atas setelah reset
+        }
+
+        // Panggil calculate saat pertama load untuk memastikan tampilan awal adalah Rp 0
+        window.onload = calculate;
+    </script>
+</body>
+</html>
